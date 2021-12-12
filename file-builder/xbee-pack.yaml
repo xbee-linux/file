@@ -1,0 +1,29 @@
+schema-version: 1.0
+
+type: builder
+
+
+const:
+  srcDir: /usr/src
+  exportDir: /opt/file
+
+
+var:
+  version: "5.40"
+
+provision:
+  - url:
+      from: https://astron.com/pub/file/file-{% version %}.tar.gz
+      todir: "{% srcDir %}"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr
+        - make
+        - make check
+        - make install
+      directory: "{% srcDir %}/file-{% version %}"
+  - shell: "{{ .templates }}/toexport.sh"
+  - export: "{% exportDir %}"
+

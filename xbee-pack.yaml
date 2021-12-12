@@ -1,0 +1,25 @@
+schema-version: 1.0
+
+description: |
+  Le paquet File contient un outil pour déterminer le type d'un fichier ou des fichiers donnés.
+
+  Programmes installés: file
+  Bibliothèque installée: libmagic.so
+
+  file: Tente de classifier chaque fichier donné. Il réalise ceci en exécutant différents tests—tests sur le système de fichiers, tests des nombres magiques et tests de langages
+  libmagic: Contient des routines pour la reconnaissance de nombres magiques utilisés par le programme file
+
+builder:
+  origin: ./file-builder
+  var:
+    version: "{% version %}"
+
+
+var:
+  version: "5.40"
+
+
+provision:
+  - copy:
+      builder: file
+      todir: /usr
