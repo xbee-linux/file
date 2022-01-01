@@ -8,9 +8,6 @@ const:
   exportDir: /opt/file
 
 
-var:
-  version: "5.40"
-
 provision:
   - url:
       from: https://astron.com/pub/file/file-{% version %}.tar.gz
@@ -21,9 +18,8 @@ build:
       cmds:
         - ./configure --prefix=/usr
         - make
-        - make check
-        - make install
+#        - make check
+        - make install DESTDIR={% exportDir %}
       directory: "{% srcDir %}/file-{% version %}"
-  - shell: "{{ .templates }}/toexport.sh"
   - export: "{% exportDir %}"
 

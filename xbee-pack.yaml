@@ -9,11 +9,7 @@ description: |
   file: Tente de classifier chaque fichier donné. Il réalise ceci en exécutant différents tests—tests sur le système de fichiers, tests des nombres magiques et tests de langages
   libmagic: Contient des routines pour la reconnaissance de nombres magiques utilisés par le programme file
 
-builder:
-  origin: ./file-builder
-  var:
-    version: "{% version %}"
-
+builder: ./file-builder
 
 var:
   version: "5.40"
@@ -22,4 +18,4 @@ var:
 provision:
   - copy:
       builder: file
-      todir: /usr
+      todir: /
