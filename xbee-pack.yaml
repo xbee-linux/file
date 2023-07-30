@@ -11,20 +11,20 @@ description: |
   file: Tente de classifier chaque fichier donné. Il réalise ceci en exécutant différents tests—tests sur le système de fichiers, tests des nombres magiques et tests de langages
   libmagic: Contient des routines pour la reconnaissance de nombres magiques utilisés par le programme file
 
-in:
+var:
   version: "5.40"
 
 provision:
   - url:
-      from: https://astron.com/pub/file/file-{% version %}.tar.gz
-      todir: "{% xbeeSrc %}"
+      from: https://astron.com/pub/file/file-{{ .version }}.tar.gz
+      todir: "{{ .xbee.src }}"
 
 build:
   - shell:
       cmds:
         - ./configure --prefix=/usr
         - make
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/file-{% version %}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/file-{{ .version }}"
 
 
