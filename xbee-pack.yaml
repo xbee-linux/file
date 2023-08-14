@@ -15,9 +15,7 @@ var:
   version: "5.40"
 
 provision:
-  - url:
-      from: https://astron.com/pub/file/file-{{ .version }}.tar.gz
-      todir: "{{ .xbee.src }}"
+  - url: https://astron.com/pub/file/file-{{ .version }}.tar.gz
 
 build:
   - shell:
