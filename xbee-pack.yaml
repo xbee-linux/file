@@ -12,7 +12,8 @@ description: |
   libmagic: Contient des routines pour la reconnaissance de nombres magiques utilisés par le programme file
 
 var:
-  version: "5.40"
+  xbee:
+    version: "5.40"
 
 provision:
   url: https://astron.com/pub/file/file-{{ .version }}.tar.gz
