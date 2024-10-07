@@ -1,7 +1,5 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
   Le paquet File contient un outil pour déterminer le type d'un fichier ou des fichiers donnés.
 
